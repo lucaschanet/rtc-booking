@@ -1,7 +1,14 @@
 <div>
   <h1>See your bookings</h1>
-  <% @bookings.each do |booking| %>
-    <div> <%= booking.day %></div>
-  <% end %>
+
+    <% @bookings.each do |booking| %>
+      <div class="margin-10">
+      <div> <%= booking.date %></div>
+      <div> <%= booking.start_time %></div>
+      <div> <%= booking.end_time %></div>
+          </div>
+      <% end %>
+
+
 
 </div>
