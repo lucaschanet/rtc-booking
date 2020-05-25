@@ -4,7 +4,10 @@
 </div>
 
 <div>
-  <%= @booking.day %>
+  <p>Your booking on the <%= @booking.date%></p>
+
+  <p>Starts at <%= @booking.start_time.strftime("%k:%M")%> and ends at <%= @booking.end_time.strftime("%k:%M")%></p>
+
 </div>
 
 
