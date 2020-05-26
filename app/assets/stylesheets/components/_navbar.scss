@@ -1,12 +1,25 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+}
+
+.navbar-lewagon-white {
+  background-color: white;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+
+
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.nav-link {
+  text-decoration: underline;
+}
+
+.dropdown-divider {
+  font: black;
 }

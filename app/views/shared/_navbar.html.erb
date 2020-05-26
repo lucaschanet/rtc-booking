@@ -1,7 +1,28 @@
+<% if current_page?(root_path) %>
+      <style>
+        .navbar-lewagon {
+          background: transparent !important;
+          position: absolute !important;
+          width: 100% !important;
+
+        }
+        .navbar-lewagon a {
+            color: white !important;
+            text-decoration: none;
+        }
+
+        h1{
+          color:white !important;
+        }
+
+      </style>
+    <% end %>
+
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
-</a>
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <h1 style='font-family: Pacifico; color: #1BBC9A;'>cribnb</h1>
+<% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,19 +30,26 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Messages</a>
-      </li>
-      <li class="nav-item dropdown">
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-        </div>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item active">
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Bookings", bookings_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Profile",  edit_user_registration_path(current_user), class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+        <!-- Nav if the user is not signed in -->
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>
